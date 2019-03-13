@@ -20,7 +20,7 @@ private:
 	QString strOperation;
 	bool isNewOper;
 	double firstNum;
-    double secondNum;
+	double secondNum;
 	double ResOperation(const double& first, const double& second, const QString& mathOper);
 private slots:
     void DigitsNumbers();
