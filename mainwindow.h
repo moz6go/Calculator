@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtDebug>
 #include <QKeyEvent>
+#include <cmath>
 
 namespace Ui {
 class MainWindow;
@@ -20,13 +21,17 @@ class MainWindow : public QMainWindow {
 	double secondNum;
 	double ResOperation(const double& first, const double& second, const QString& mathOper);
     void DefaultInit();
+    void keyPressEvent(QKeyEvent *event);
 private slots:
-    void DigitsNumbers();
-    void Operations();
-    void MathOperations();
-    void on_pushButton_dot_clicked();
-    void on_pushButton_AC_clicked();
-    void on_pushButton_equal_clicked();
+    void CatchButtons(QString text);
+    void DigitsNumbers ();
+    void Operations ();
+    void MathOperations ();
+    void Dot ();
+    void Ac ();
+    void Equal ();
+signals:
+    void ButtonPressed (QString text);
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
