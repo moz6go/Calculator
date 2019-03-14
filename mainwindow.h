@@ -17,16 +17,18 @@ class MainWindow : public QMainWindow {
 	QString strOperation;
 	bool isNewOper;
     bool afterEqual;
-    long double firstNum;
-    long double secondNum;
-    long double ResOperation(const long double& first, const long double& second, const QString& mathOper);
+    double firstNum;
+    double secondNum;
+    double BinaryCalculate(const double& first, const double& second, const QString& mathOper);
     void DefaultInit();
     void keyPressEvent(QKeyEvent *event);
+    void setFirst(double first);
+    void setSecond (double second);
 private slots:
-    void CatchButtons(QString text);
+    void ButtonsHandler(QString text);
     void DigitsNumbers ();
-    void Operations ();
-    void MathOperations ();
+    void UnaryOperations ();
+    void BinaryOperations ();
     void Dot ();
     void Ac ();
     void Ce ();
