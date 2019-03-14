@@ -22,7 +22,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->pushButton_div, &QPushButton::clicked, this, &MainWindow::MathOperations);
 
     connect(ui->pushButton_reverse, &QPushButton::clicked, this, &MainWindow::Operations);
-    connect(ui->pushButton_percent, &QPushButton::clicked, this, &MainWindow::Operations);
     connect (ui->pushButton_pow, &QPushButton::clicked, this,  &MainWindow::Operations);
     connect (ui->pushButton_1_div_x, &QPushButton::clicked, this,  &MainWindow::Operations);
     connect (ui->pushButton_sqrt, &QPushButton::clicked, this,  &MainWindow::Operations);
@@ -30,8 +29,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     connect (ui->pushButton_equal, &QPushButton::clicked, this, &MainWindow::Equal);
     connect(ui->pushButton_dot, &QPushButton::clicked, this, &MainWindow::Dot);
-    connect(ui->pushButton_AC, &QPushButton::clicked, this, &MainWindow::Ac);
-
+    connect(ui->pushButton_ac, &QPushButton::clicked, this, &MainWindow::Ac);
+    connect(ui->pushButton_ce, &QPushButton::clicked, this, &MainWindow::Ce);
 
     QObject::connect (this, &MainWindow::ButtonPressed, this, &MainWindow::CatchButtons);
 }
@@ -51,12 +50,12 @@ void MainWindow::CatchButtons(QString text){
     if(text == "-") ui->pushButton_minus->animateClick ();
     if(text == "*") ui->pushButton_mult->animateClick ();
     if(text == "/") ui->pushButton_div->animateClick ();
-    if(text == "%") ui->pushButton_percent->animateClick ();
     if(text == ".") ui->pushButton_dot->animateClick ();
     if(text == "\r") ui->pushButton_equal->animateClick ();
     if(text == "\b") ui->pushButton_del->animateClick ();
-    if(text == "\u007F") ui->pushButton_AC->animateClick ();
+    if(text == "\u007F") ui->pushButton_ac->animateClick ();
 }
+
 void MainWindow::keyPressEvent(QKeyEvent *event){
     emit ButtonPressed (event->text ());
 }
@@ -76,13 +75,15 @@ void MainWindow::DigitsNumbers() {
     if (afterEqual) {
         Ac();
     }
-	double dNumber = (ui->showResult->text() + button->text()).toDouble();
-	ui->showResult->setText(QString::number(dNumber, 'g', 12));
+    if(ui->showResult->text().size () < 12) {
+        long double dNumber = (ui->showResult->text() + button->text()).toDouble();
+        ui->showResult->setText(QString::number(dNumber, 'g', 12));
+    }
 	isNewOper = false;
     afterEqual = false;
 }
-double MainWindow::ResOperation(const double& first, const double& second, const QString& mathOper)
-{
+
+long double MainWindow::ResOperation(const long double& first, const long double& second, const QString& mathOper) {
     if (mathOper == "+") {
 		return first + second;
 	}
@@ -92,25 +93,22 @@ double MainWindow::ResOperation(const double& first, const double& second, const
     else if (mathOper == "*") {
 		return first * second;
 	}
-    else if (mathOper == "/") {
+    else if (mathOper == "÷") {
         if (second != 0.0)	{
 			return first / second;
 		}
 	}
 	return first;
 }
+
 void MainWindow::Operations()
 {
     QPushButton* button = static_cast<QPushButton*>(sender());
-    if(button->text() == "+/-") {
-		firstNum = (ui->showResult->text()).toDouble()*(-1);
-		ui->showResult->setText(QString::number(firstNum, 'g', 12));
+    if(button->text() == "±") {
+        ui->showResult->setText(QString::number((ui->showResult->text()).toDouble()*(-1), 'g', 12));
+        firstNum = ui->showResult->text ().toDouble ();
     }
-    else if(button->text() == "%") {
-        firstNum = (ui->showResult->text()).toDouble() * 0.01;
-		ui->showResult->setText(QString::number(firstNum, 'g', 12));
-    }
-    else if (button->text() == "<--") {
+    else if (button->text() == "⌫") {
         if(ui->showResult->text ().size () > 1){
             QString new_text = ui->showResult->text ();
             new_text.chop (1);
@@ -119,12 +117,13 @@ void MainWindow::Operations()
         else {
             ui->showResult->setText("0");
         }
+        firstNum = ui->showResult->text ().toDouble ();
     }
-    else if (button->text() == "x^2") {
+    else if (button->text() == "x²") {
         firstNum = (ui->showResult->text()).toDouble() * (ui->showResult->text()).toDouble();
         ui->showResult->setText(QString::number(firstNum, 'g', 12));
     }
-    else if (button->text() == "sqrt(x)") {
+    else if (button->text() == "√x") {
         firstNum = sqrt ((ui->showResult->text()).toDouble());
         ui->showResult->setText(QString::number(firstNum, 'g', 12));
     }
@@ -133,22 +132,24 @@ void MainWindow::Operations()
         ui->showResult->setText(QString::number(firstNum, 'g', 12));
     }
     afterEqual = true;
+    secondNum = 0;
 }
+
 void MainWindow::MathOperations() {
     if (!isNewOper) {
         afterEqual = false;
 		QPushButton* button = static_cast<QPushButton*>(sender());
+        secondNum = (ui->showResult->text()).toDouble();
 		ui->showExpression->setText(ui->showExpression->text() + " " + ui->showResult->text() + " " + button->text());
-		secondNum = (ui->showResult->text()).toDouble();
-        if(secondNum == 0.0 && strOperation == "/") {
+        if((ui->showResult->text()).toDouble() == 0.0 && strOperation == "/") {
 			ui->showResult->setText("Error: DIV/0");
 			ui->showExpression->setText("");
 		}
         else {
-			ui->showResult->setText(QString::number(ResOperation(firstNum, secondNum, strOperation), 'g', 12));
+            ui->showResult->setText(QString::number(ResOperation(firstNum, (ui->showResult->text()).toDouble(), strOperation), 'g', 12));
 			strOperation = button->text();
             isNewOper = true;
-			firstNum = (ui->showResult->text()).toDouble();
+            firstNum = (ui->showResult->text()).toDouble();
 		}
 	}
 }
@@ -169,8 +170,11 @@ void MainWindow::Dot() {
 void MainWindow::Ac() {
     ui->showResult->setText(ui->pushButton_0->text());
     ui->showExpression->setText("");
-
     DefaultInit();
+}
+
+void MainWindow::Ce () {
+    ui->showResult->setText(ui->pushButton_0->text());
 }
 
 MainWindow::~MainWindow() {

@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>298</width>
+    <width>320</width>
     <height>452</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>241</width>
+    <width>320</width>
     <height>452</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>298</width>
+    <width>320</width>
     <height>452</height>
    </size>
   </property>
@@ -26,12 +26,12 @@
    <string>Калькулятор</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton_AC">
+   <widget class="QPushButton" name="pushButton_ac">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>90</y>
-      <width>149</width>
+      <width>161</width>
       <height>61</height>
      </rect>
     </property>
@@ -39,6 +39,9 @@
      <font>
       <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -59,19 +62,23 @@ QPushButton:pressed {
      <rect>
       <x>0</x>
       <y>390</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
 	background-color: rgb(215, 215, 215);
 	border: 1px solid gray;
+	font-size: 20px;
 }
 QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
@@ -79,15 +86,15 @@ QPushButton:pressed {
 }</string>
     </property>
     <property name="text">
-     <string>+/-</string>
+     <string>±</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_percent">
+   <widget class="QPushButton" name="pushButton_ce">
     <property name="geometry">
      <rect>
-      <x>222</x>
+      <x>160</x>
       <y>90</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -95,6 +102,9 @@ QPushButton:pressed {
      <font>
       <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -107,38 +117,39 @@ QPushButton:pressed {
 }</string>
     </property>
     <property name="text">
-     <string>%</string>
+     <string>CE</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_div">
     <property name="geometry">
      <rect>
-      <x>222</x>
+      <x>240</x>
       <y>210</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-  background-color: rgb(255, 151, 57);
-  color: white; 
-  border: 1px solid gray;
-
+	background-color: rgb(215, 215, 215);
+	border: 1px solid gray;
+	font-size: 20px;
 }
-
 QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #FF7832, stop: 1 #FF9739);
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
     </property>
     <property name="text">
-     <string>/</string>
+     <string>÷</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_7">
@@ -146,7 +157,7 @@ QPushButton:pressed {
      <rect>
       <x>0</x>
       <y>210</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -156,6 +167,9 @@ QPushButton:pressed {
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -175,9 +189,9 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_9">
     <property name="geometry">
      <rect>
-      <x>148</x>
+      <x>160</x>
       <y>210</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -187,6 +201,9 @@ QPushButton:pressed {
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -206,9 +223,9 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_8">
     <property name="geometry">
      <rect>
-      <x>74</x>
+      <x>80</x>
       <y>210</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -218,6 +235,9 @@ QPushButton:pressed {
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -237,28 +257,29 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_mult">
     <property name="geometry">
      <rect>
-      <x>222</x>
+      <x>240</x>
       <y>270</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-  background-color: rgb(255, 151, 57);
-  color: white; 
-  border: 1px solid gray;
-
+	background-color: rgb(215, 215, 215);
+	border: 1px solid gray;
+	font-size: 20px;
 }
-
 QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #FF7832, stop: 1 #FF9739);
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
     </property>
     <property name="text">
@@ -268,9 +289,9 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>148</x>
+      <x>160</x>
       <y>270</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -280,6 +301,9 @@ QPushButton:pressed {
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -299,28 +323,29 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_minus">
     <property name="geometry">
      <rect>
-      <x>222</x>
+      <x>240</x>
       <y>330</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-  background-color: rgb(255, 151, 57);
-  color: white; 
-  border: 1px solid gray;
-
+	background-color: rgb(215, 215, 215);
+	border: 1px solid gray;
+	font-size: 20px;
 }
-
 QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #FF7832, stop: 1 #FF9739);
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
     </property>
     <property name="text">
@@ -332,7 +357,7 @@ QPushButton:pressed {
      <rect>
       <x>0</x>
       <y>270</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -342,6 +367,9 @@ QPushButton:pressed {
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -361,9 +389,9 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>74</x>
+      <x>80</x>
       <y>270</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -373,6 +401,9 @@ QPushButton:pressed {
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -392,9 +423,9 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>74</x>
+      <x>80</x>
       <y>330</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -404,6 +435,9 @@ QPushButton:pressed {
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -423,9 +457,9 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>148</x>
+      <x>160</x>
       <y>330</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -435,6 +469,9 @@ QPushButton:pressed {
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -456,7 +493,7 @@ QPushButton:pressed {
      <rect>
       <x>0</x>
       <y>330</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -466,6 +503,9 @@ QPushButton:pressed {
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -485,28 +525,29 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_plus">
     <property name="geometry">
      <rect>
-      <x>222</x>
+      <x>240</x>
       <y>150</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-  background-color: rgb(255, 151, 57);
-  color: white; 
-  border: 1px solid gray;
-
+	background-color: rgb(215, 215, 215);
+	border: 1px solid gray;
+	font-size: 20px;
 }
-
 QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #FF7832, stop: 1 #FF9739);
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
     </property>
     <property name="text">
@@ -516,9 +557,9 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_0">
     <property name="geometry">
      <rect>
-      <x>74</x>
+      <x>80</x>
       <y>390</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -528,6 +569,9 @@ QPushButton:pressed {
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -547,21 +591,25 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_dot">
     <property name="geometry">
      <rect>
-      <x>148</x>
+      <x>160</x>
       <y>390</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
 	background-color: rgb(215, 215, 215);
 	border: 1px solid gray;
+	font-size: 20px;
 }
 QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
@@ -575,28 +623,29 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_equal">
     <property name="geometry">
      <rect>
-      <x>222</x>
+      <x>240</x>
       <y>390</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-  background-color: rgb(255, 151, 57);
-  color: white; 
-  border: 1px solid gray;
-
+	background-color: rgb(215, 215, 215);
+	border: 1px solid gray;
+	font-size: 20px;
 }
-
 QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #FF7832, stop: 1 #FF9739);
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }</string>
     </property>
     <property name="text">
@@ -608,7 +657,7 @@ QPushButton:pressed {
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>291</width>
+      <width>311</width>
       <height>86</height>
      </rect>
     </property>
@@ -669,7 +718,7 @@ background-color : white;</string>
      <rect>
       <x>0</x>
       <y>150</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -677,6 +726,9 @@ background-color : white;</string>
      <font>
       <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -689,15 +741,15 @@ QPushButton:pressed {
 }</string>
     </property>
     <property name="text">
-     <string>x^2</string>
+     <string>x²</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_sqrt">
     <property name="geometry">
      <rect>
-      <x>74</x>
+      <x>80</x>
       <y>150</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -705,6 +757,9 @@ QPushButton:pressed {
      <font>
       <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -717,15 +772,15 @@ QPushButton:pressed {
 }</string>
     </property>
     <property name="text">
-     <string>sqrt(x)</string>
+     <string>√x</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_1_div_x">
     <property name="geometry">
      <rect>
-      <x>148</x>
+      <x>160</x>
       <y>150</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
@@ -733,6 +788,9 @@ QPushButton:pressed {
      <font>
       <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -751,21 +809,25 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_del">
     <property name="geometry">
      <rect>
-      <x>148</x>
+      <x>240</x>
       <y>90</y>
-      <width>75</width>
+      <width>81</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
 	background-color: rgb(215, 215, 215);
 	border: 1px solid gray;
+	font-size: 20px;
 }
 QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
@@ -773,7 +835,7 @@ QPushButton:pressed {
 }</string>
     </property>
     <property name="text">
-     <string>&lt;--</string>
+     <string>⌫</string>
     </property>
    </widget>
   </widget>

@@ -17,9 +17,9 @@ class MainWindow : public QMainWindow {
 	QString strOperation;
 	bool isNewOper;
     bool afterEqual;
-	double firstNum;
-	double secondNum;
-	double ResOperation(const double& first, const double& second, const QString& mathOper);
+    long double firstNum;
+    long double secondNum;
+    long double ResOperation(const long double& first, const long double& second, const QString& mathOper);
     void DefaultInit();
     void keyPressEvent(QKeyEvent *event);
 private slots:
@@ -29,6 +29,7 @@ private slots:
     void MathOperations ();
     void Dot ();
     void Ac ();
+    void Ce ();
     void Equal ();
 signals:
     void ButtonPressed (QString text);
