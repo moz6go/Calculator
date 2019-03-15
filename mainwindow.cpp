@@ -102,7 +102,7 @@ void MainWindow::UnaryOperations() {
         ui->showResult->setText(QString::number((ui->showResult->text()).toDouble()*(-1), 'g', 12));
     }
     else if (button->text() == "⌫") {
-        if(ui->showResult->text ().size () > 1){
+        if(ui->showResult->text ().size () > 1 && ui->showResult->text () != "Error: DIV/0"){
             QString new_text = ui->showResult->text ();
             new_text.chop (1);
             ui->showResult->setText(new_text);
@@ -120,8 +120,13 @@ void MainWindow::UnaryOperations() {
         ui->showResult->setText(QString::number(res, 'g', 12));
     }
     else if (button->text() == "1/x") {
-        double res = 1 / (ui->showResult->text()).toDouble();
-        ui->showResult->setText(QString::number(res, 'g', 12));
+        if(ui->showResult->text().toDouble() == 0.0 ){
+            ui->showResult->setText("Error: DIV/0");
+        }
+        else{
+            double res = 1 / (ui->showResult->text()).toDouble();
+            ui->showResult->setText(QString::number(res, 'g', 12));
+        }
     }
 }
 
@@ -157,7 +162,7 @@ double MainWindow::BinaryCalculate(const double& first, const double& second, co
     else if (mathOper == "÷") {
         return first / second;
     }
-    return first;
+    return ui->showResult->text().toDouble ();
 }
 
 void MainWindow::Equal() {
