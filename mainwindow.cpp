@@ -51,6 +51,7 @@ void MainWindow::ButtonsHandler(QString text){
     if(text == "*") ui->pushButton_mult->animateClick ();
     if(text == "/") ui->pushButton_div->animateClick ();
     if(text == ".") ui->pushButton_dot->animateClick ();
+    if(text == ",") ui->pushButton_dot->animateClick ();
     if(text == "\r") ui->pushButton_equal->animateClick ();
     if(text == "\b") ui->pushButton_del->animateClick ();
     if(text == "\u007F") ui->pushButton_ac->animateClick ();
@@ -83,29 +84,16 @@ void MainWindow::DigitsNumbers() {
         Ac();
     }
     if(ui->showResult->text().size () < 12) {
-        double dNumber = (ui->showResult->text() + button->text()).toDouble();
-        ui->showResult->setText(QString::number(dNumber, 'g', 12));
+        if((button->text() == "0" && ui->showResult->text()[0] != '0') || ui->showResult->text().contains ('.')){
+            ui->showResult->setText(ui->showResult->text() + button->text());
+        }
+        else{
+            double dNumber = (ui->showResult->text() + button->text()).toDouble();
+            ui->showResult->setText(QString::number(dNumber, 'g', 12));
+        }
     }
 	isNewOper = false;
     afterEqual = false;
-}
-
-double MainWindow::BinaryCalculate(const double& first, const double& second, const QString& mathOper) {
-    if (mathOper == "+") {
-		return first + second;
-	}
-    else if (mathOper == "-") {
-		return first - second;
-	}
-    else if (mathOper == "*") {
-		return first * second;
-	}
-    else if (mathOper == "÷") {
-        if (second != 0.0)	{
-			return first / second;
-		}
-	}
-	return first;
 }
 
 void MainWindow::UnaryOperations() {
@@ -135,7 +123,6 @@ void MainWindow::UnaryOperations() {
         double res = 1 / (ui->showResult->text()).toDouble();
         ui->showResult->setText(QString::number(res, 'g', 12));
     }
-    DefaultInit ();
 }
 
 void MainWindow::BinaryOperations() {
@@ -144,7 +131,7 @@ void MainWindow::BinaryOperations() {
 		QPushButton* button = static_cast<QPushButton*>(sender());
         setSecond((ui->showResult->text()).toDouble());
 		ui->showExpression->setText(ui->showExpression->text() + " " + ui->showResult->text() + " " + button->text());
-        if(secondNum == 0.0 && strOperation == "/") {
+        if(secondNum == 0.0 && strOperation == "÷") {
 			ui->showResult->setText("Error: DIV/0");
 			ui->showExpression->setText("");
 		}
@@ -155,6 +142,22 @@ void MainWindow::BinaryOperations() {
             setFirst((ui->showResult->text()).toDouble());
 		}
 	}
+}
+
+double MainWindow::BinaryCalculate(const double& first, const double& second, const QString& mathOper) {
+    if (mathOper == "+") {
+        return first + second;
+    }
+    else if (mathOper == "-") {
+        return first - second;
+    }
+    else if (mathOper == "*") {
+        return first * second;
+    }
+    else if (mathOper == "÷") {
+        return first / second;
+    }
+    return first;
 }
 
 void MainWindow::Equal() {

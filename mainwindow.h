@@ -19,11 +19,11 @@ class MainWindow : public QMainWindow {
     bool afterEqual;
     double firstNum;
     double secondNum;
-    double BinaryCalculate(const double& first, const double& second, const QString& mathOper);
     void DefaultInit();
-    void keyPressEvent(QKeyEvent *event);
     void setFirst(double first);
     void setSecond (double second);
+    void keyPressEvent(QKeyEvent *event);
+    double BinaryCalculate(const double& first, const double& second, const QString& mathOper);
 private slots:
     void ButtonsHandler(QString text);
     void DigitsNumbers ();

@@ -6,24 +6,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>362</width>
-    <height>452</height>
+    <width>361</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>362</width>
-    <height>452</height>
+    <width>361</width>
+    <height>451</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>362</width>
-    <height>452</height>
+    <width>361</width>
+    <height>451</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Калькулятор</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+	border: 1px solid gray;
+}</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pushButton_ac">
@@ -37,7 +42,8 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>15</pointsize>
+      <italic>false</italic>
      </font>
     </property>
     <property name="focusPolicy">
@@ -100,7 +106,8 @@ QPushButton:pressed {
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>15</pointsize>
+      <italic>false</italic>
      </font>
     </property>
     <property name="focusPolicy">
@@ -724,7 +731,8 @@ background-color : white;</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>15</pointsize>
+      <italic>false</italic>
      </font>
     </property>
     <property name="focusPolicy">
@@ -755,7 +763,8 @@ QPushButton:pressed {
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>15</pointsize>
+      <italic>false</italic>
      </font>
     </property>
     <property name="focusPolicy">
@@ -786,7 +795,8 @@ QPushButton:pressed {
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>15</pointsize>
+      <italic>false</italic>
      </font>
     </property>
     <property name="focusPolicy">
